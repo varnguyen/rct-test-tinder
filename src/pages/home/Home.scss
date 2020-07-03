@@ -78,7 +78,8 @@
 
                 li {
                     margin: 20px;
-                    display: inline;
+                    display: inline-block;
+                    transition: transform 1s;
 
                     i {
                         font-size: 30px;
@@ -88,6 +89,8 @@
 
                 li.active,
                 li.active:hover {
+                    transform: rotate(360deg);
+
                     i {
                         color: #83ba43;
                     }
@@ -105,6 +108,16 @@
             background: #f9f9f9;
             border-bottom: 1px solid rgba(0, 0, 0, 0.15);
             z-index: -1;
+        }
+    }
+
+    .action {
+        display: inline-flex;
+        width: 100%;
+        justify-content: center;
+
+        button {
+            margin: 0 20px;
         }
     }
 }

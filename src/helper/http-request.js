@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const http_request = async (url = "", method = "get", headers = {}, params = undefined, data = undefined) => {
+const httpRequest = async (api_name = "", method = "get", headers = {}, params = undefined, data = undefined) => {
     return await axios({
         method,
         headers,
-        url,
+        url: `https://randomuser.me/${api_name}`,
         params,
         data
     })
 }
 
-export default http_request;
+export default httpRequest;

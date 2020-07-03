@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux'
+import store from './redux/store/store';
 import AppRouter from './routers/AppRouter';
-import { BrowserRouter } from 'react-router-dom';
 
 class App extends Component {
     render() {
-        return (<BrowserRouter>
+        return (<Provider store={store} >
             <AppRouter />
-        </BrowserRouter>)
+        </Provider>)
     }
 }
 

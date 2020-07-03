@@ -15,7 +15,7 @@ class FavoriteList extends Component {
         this.getFavoriteUser();
     }
 
-    getFavoriteUser() {
+    getFavoriteUser = () => {
         var users = localStorage.getItem('users');
         if (!users) {
             users = [];
@@ -27,12 +27,12 @@ class FavoriteList extends Component {
         this.setState({ users })
     }
 
-    deleteAllUser() {
+    deleteAllUser = () => {
         localStorage.clear();
         this.setState({ users: [] });
     }
 
-    _render_list = () => {
+    renderUserList = () => {
         const { users } = this.state;
 
         if (users.length === 0) return (<div className="data-empty">Không có dữ liệu</div>)
@@ -47,8 +47,8 @@ class FavoriteList extends Component {
                 <Card className="box-user">
                     <Card.Img variant="top" src={img} />
                     <Card.Body className="box-content">
-                        <Card.Title>{fullName}</Card.Title>
-                        <ListGroup>
+                        <Card.Title className="text-center">{fullName}</Card.Title>
+                        <ListGroup variant="flush">
                             <ListGroup.Item><i className="fas fa-phone-alt"></i>: {user.phone}</ListGroup.Item>
                             <ListGroup.Item><i className="fas fa-birthday-cake"></i>: {user.dob.date}</ListGroup.Item>
                             <ListGroup.Item><i className="far fa-envelope"></i>: {user.email}</ListGroup.Item>
@@ -65,7 +65,7 @@ class FavoriteList extends Component {
             <div className="favorite-list">
                 <h2 className="mb-3">Favorite List</h2>
                 <Button className="mb-3" variant="danger" onClick={() => this.deleteAllUser()}>Delete All</Button>
-                {this._render_list()}
+                {this.renderUserList()}
             </div >
         );
     }
